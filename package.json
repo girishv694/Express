@@ -1,0 +1,14 @@
+{
+  "name": "unit-3express",
+  "version": "1.0.0",
+  "description": "starting app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "girishv",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
