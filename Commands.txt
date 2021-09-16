@@ -1,0 +1,146 @@
+
+
+use assignment
+
+
+
+db.users.insertMany([{
+first_name:"jhanvi",last_name:"j",email:"jhanvi@gmail.com",gender:"female",ip_address:"129.0",age:"20"},{first_name:"naga",last_name:"raj",email:"jaar@gmail.com",gender:"male",ip_address:"123.1.1",age:"30"}])
+
+
+db.users.insertMany([{
+first_name:"Jyothi",last_name:"j",email:"jyothi@gmail.com",gender:"female",ip_address:"127.0",age:"22"},{first_name:"Girish",last_name:"v",email:"giri@gmail.com",gender:"male",ip_address:"123.1.1",age:"22"}])
+
+
+db.users.insertMany([{
+first_name:"puru",last_name:"v",email:"puru@gmail.com",gender:"male",ip_address:"123.0",age:"27"},{first_name:"pooja",last_name:"s",email:"pooja@gmail.com",gender:"female",ip_address:"123.0.1",age:"25"}])
+
+
+db.users.insertMany([{
+first_name:"bhuvan",last_name:"v",email:"bhuvan@gmail.com",gender:"male",ip_address:"125.0",age:"22"},{first_name:"swapna",last_name:"s",email:"swapna@gmail.com",gender:"female",ip_address:"112.0.1",age:"20"}])
+
+db.users.insert({first_name:"catlin",last_name:"c",email:"catlin@gmail.com",gender:"female",ip_address:"120.1",age:"19"})
+
+
+db.users.insert({first_name:"san",last_name:"s",email:"san@gmail.com",gender:"male",ip_address:"120.4",age:"20"})
+
+
+show collections
+users
+
+
+
+db.users.findOne()
+{
+        "_id" : ObjectId("614338cb12ab5bbe6426c533"),
+        "first_name" : "John",
+        "last_name" : "cena",
+        "email" : "john694@gmail.com",
+        "gender" : "male",
+        "ip_address" : "127.0.0.2",
+        "age" : "26"
+}
+
+
+
+db.users.find({gender:"male"}).pretty()
+{
+        "_id" : ObjectId("614338cb12ab5bbe6426c533"),
+        "first_name" : "John",
+        "last_name" : "cena",
+        "email" : "john694@gmail.com",
+        "gender" : "male",
+        "ip_address" : "127.0.0.2",
+        "age" : "26"
+}
+{
+        "_id" : ObjectId("61433ac053f123ace9700579"),
+        "first_name" : "Girish",
+        "last_name" : "v",
+        "email" : "giri694@gmail.com",
+        "gender" : "male",
+        "ip_address" : "127.0.0.1",
+        "age" : "25"
+}
+{
+        "_id" : ObjectId("61434206b5f79129c208a311"),
+        "first_name" : "Bhuvan",
+        "last_name" : "g",
+        "email" : "b@gmail.com",
+        "gender" : "male",
+        "ip_address" : "127.8",
+        "age" : "22"
+}
+{
+        "_id" : ObjectId("614342d5b5f79129c208a313"),
+        "first_name" : "Randy",
+        "last_name" : "v",
+        "email" : "puru@gmail.com",
+        "gender" : "male",
+        "ip_address" : "127.0",
+        "age" : "27"
+}
+{
+        "_id" : ObjectId("6143441d94f3cac054ab16c4"),
+        "first_name" : "naga",
+        "last_name" : "raj",
+        "email" : "jaar@gmail.com",
+        "gender" : "male",
+        "ip_address" : "123.1.1",
+        "age" : "30"
+}
+
+
+
+db.users.update({first_name:"pooja"},{$set:{first_name:"POOJA SSS"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+
+
+db.users.find({first_name:"POOJA SSS"}).pretty()
+{
+        "_id" : ObjectId("61433d8953f123ace970057d"),
+        "first_name" : "POOJA SSS",
+        "last_name" : "s",
+        "email" : "p@gmail.com",
+        "gender" : "female",
+        "ip_address" : "127.2",
+        "age" : "24"
+}
+
+
+
+//update
+
+db.users.updateMany({gender:"female"},{$set:{gender:"FEMALE"}})
+{ "acknowledged" : true, "matchedCount" : 4, "modifiedCount" : 4 }
+
+
+db.users.find({gender:"FEMALE"})
+{ "_id" : ObjectId("61433d8953f123ace970057c"), "first_name" : "jyothi", "last_name" : "s", "email" : "j@gmail.com", "gender" : "FEMALE", "ip_address" : "127.0", "age" : "23" }
+{ "_id" : ObjectId("61433d8953f123ace970057d"), "first_name" : "POOJA SSS", "last_name" : "s", "email" : "p@gmail.com", "gender" : "FEMALE", "ip_address" : "127.2", "age" : "24" }
+{ "_id" : ObjectId("61434206b5f79129c208a312"), "first_name" : "swapna", "last_name" : "s", "email" : "s@gmail.com", "gender" : "FEMALE", "ip_address" : "127.9", "age" : "19" }
+{ "_id" : ObjectId("614342d5b5f79129c208a314"), "first_name" : "catlin", "last_name" : "l", "email" : "cat@gmail.com", "gender" : "FEMALE", "ip_address" : "127.127", "age" : "22" }
+
+
+
+
+//Delete one
+
+db.users.deleteOne({first_name:"catlin"})
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+
+db.users.remove({first_name:"girish"})
+WriteResult({ "nRemoved" : 1 })
+
+
+//dropping database
+db.users.drop()
+true
+
+
+
+
+
+
